@@ -1,0 +1,9 @@
+# NR span dataset (reason: strong/weak)
+_target_: src.datamodules.datamodules.SrcEvtDataModule
+
+target_name: ??? # e.g., "alpha_ffc"
+
+bsz: ???
+val_bsz: ${.bsz}
+test_bsz: ${.bsz}
+eff_bsz: ${.bsz}

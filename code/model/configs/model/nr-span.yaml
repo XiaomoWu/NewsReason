@@ -1,0 +1,5 @@
+# Find reasons (weak/strong) from headlines
+_target_: src.models.models.NrSpanModel
+
+pretrained_model: ???
+d_model: ???

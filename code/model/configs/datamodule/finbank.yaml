@@ -1,0 +1,4 @@
+# Toy DataModule
+_target_: src.datamodules.datamodules.FinBankDataModule
+
+bsz: 16

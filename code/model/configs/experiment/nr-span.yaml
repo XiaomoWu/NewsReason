@@ -1,0 +1,58 @@
+# @package _global_
+defaults:
+  - override /datamodule: nr-span
+  - override /model: nr-span
+  - override /callbacks:
+    - wandb
+    - rich-progress-bar
+    - model-checkpoint
+  - override /trainer: default
+  - override /strategy: deepspeed
+  - override /logger: wandb
+
+model_id: test
+seed: 42
+test_after_train: false
+
+model:
+  pretrained_model: bert-large-cased
+  d_model: 1024
+
+datamodule:
+  xt_path: /home/yu/OneDrive/SrcEvt/local-dev/data/annotation/2-classify-reason/train_in600out600.feather
+
+  classes: [
+    'Operation Outcome (Realization)', 'Operation Outcome (Outlook)', 'Operation Outcome (Specific Product)',
+    'Firm Action (Restructuring)', 'Firm Action (Partnership)', 'Firm Action (Others)',
+    'External Shock (Policy)', 'External Shock (Peers)', 'External Shock (Others)',
+    'Financing (Dividend)', 'Financing (Issuance)', 'Financing (Buybacks)', 'Financing (Debt)',
+    'Labor (Management)', 'Labor (Non-management)',
+    'Third Party (Analysts)', 'Third Party (Investors)', 'Third Party (Media and Others)',
+    'Demand & Trading',
+    'Technical',
+    'Contrast/Confusion',
+    'Fraud & Investigation',
+    'Litigation',
+    'Others']  # N=24
+
+  use_biolu: false
+
+  bsz: 8
+  val_bsz: 16
+  num_workers: 2
+
+  train_val_test_split: [1, 0, 0]
+  use_test_as_val: false
+  use_train_as_val: true
+
+optimizer:
+  lr: 3e-5
+
+trainer:
+  min_epochs: 1
+  max_epochs: 15
+  check_val_every_n_epoch: 1
+
+callbacks:
+  model_checkpoint:
+    monitor: val/f1

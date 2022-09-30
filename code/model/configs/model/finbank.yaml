@@ -1,0 +1,10 @@
+# (For concept proof of the Generic Attention Map)
+_target_: src.models.models.FinBankModel
+
+embed_dim: 768
+num_heads: 12
+mlp_ratio: 4
+qkv_bias: False
+drop_rate: 0.
+attn_drop_rate: 0.1
+depth: 1

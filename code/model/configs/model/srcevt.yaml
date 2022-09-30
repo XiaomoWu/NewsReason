@@ -1,0 +1,5 @@
+# predict return using srcevt
+_target_: src.models.models.SrcEvtModel
+
+pretrained_model: ???
+d_model: ???

@@ -1,0 +1,10 @@
+# NR span dataset (reason: strong/weak)
+_target_: src.datamodules.datamodules.NrClassDataModule
+
+use_train_as_val: false
+
+bsz: ???
+coarse: ???
+val_bsz: ${.bsz}
+test_bsz: ${.bsz}
+eff_bsz: ${.bsz}

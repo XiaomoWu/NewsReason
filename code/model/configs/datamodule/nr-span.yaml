@@ -1,0 +1,13 @@
+# NR span dataset (reason: strong/weak)
+_target_: src.datamodules.datamodules.NrSpanDataModule
+
+coarse: ???
+ignore_index: ???
+
+use_biolu: ???
+use_train_as_val: false
+
+bsz: ???
+val_bsz: ${.bsz}
+test_bsz: ${.bsz}
+eff_bsz: ${.bsz}

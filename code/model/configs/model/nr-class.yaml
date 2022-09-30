@@ -1,0 +1,5 @@
+# classify reasons from headlines
+_target_: src.models.models.NrClassModel
+
+pretrained_model: ???
+d_model: ???
